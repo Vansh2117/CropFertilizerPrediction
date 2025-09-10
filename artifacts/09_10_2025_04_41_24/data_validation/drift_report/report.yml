@@ -1,0 +1,44 @@
+fertilizer:
+  Crop_Type:
+    drift_status: &id001 !!python/object/apply:numpy._core.multiarray.scalar
+    - !!python/object/apply:numpy.dtype
+      args:
+      - b1
+      - false
+      - true
+      state: !!python/tuple
+      - 3
+      - '|'
+      - null
+      - null
+      - null
+      - -1
+      - -1
+      - 0
+    - !!binary |
+      AA==
+    p_value: 0.8833135228391952
+  Fertilizer_name:
+    drift_status: *id001
+    p_value: 0.13277677034822144
+  Humidity:
+    drift_status: *id001
+    p_value: 0.9840322841769013
+  Moisture:
+    drift_status: *id001
+    p_value: 0.803033720277935
+  Nitrogen:
+    drift_status: *id001
+    p_value: 0.5013051763786819
+  Phosphorous:
+    drift_status: *id001
+    p_value: 0.8425935261845832
+  Potassium:
+    drift_status: *id001
+    p_value: 0.703271858102411
+  Soil_Type:
+    drift_status: *id001
+    p_value: 0.9999588919604636
+  Temperature:
+    drift_status: *id001
+    p_value: 0.9974566080417406

@@ -1,0 +1,21 @@
+columns:
+    - 'Temperature'
+    - 'Humidity'
+    - 'Moisture'
+    - 'Soil_Type'
+    - 'Crop_Type'
+    - 'Nitrogen'
+    - 'Potassium'
+    - 'Phosphorous'
+    - 'Fertilizer_name'
+numerical_columns:
+    - 'Temperature'
+    - 'Moisture'
+    - 'Humidity'
+    - 'Nitrogen'
+    - 'Phosphorous'
+    - 'Potassium'
+categorical_columns:
+    - 'Soil_Type'
+    - 'Crop_Type'
+target_column: 'Fertilizer_name'

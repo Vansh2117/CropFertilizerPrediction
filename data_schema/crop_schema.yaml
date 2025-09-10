@@ -1,0 +1,19 @@
+columns:
+    - N
+    - P
+    - K
+    - temperature
+    - humidity
+    - ph
+    - rainfall
+    - label
+numerical_columns:
+    - N
+    - P
+    - K
+    - temperature
+    - humidity
+    - ph
+    - rainfall
+categorical_columns: []
+target_column: label

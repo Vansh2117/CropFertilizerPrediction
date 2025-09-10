@@ -1,0 +1,54 @@
+[2025-09-10 04:41:28,173] 10 root - INFO - === Starting Full Training Pipeline ===
+[2025-09-10 04:41:28,173] 97 root - INFO - ====== Training Pipeline Started ======
+[2025-09-10 04:41:28,174] 30 root - INFO - Starting Data Ingestion...
+[2025-09-10 04:41:28,185] 36 root - INFO - Loaded crop and fertilizer raw datasets from data/ folder
+[2025-09-10 04:41:28,209] 44 root - INFO - Copied datasets into feature_store inside artifacts
+[2025-09-10 04:41:28,209] 55 root - INFO - MongoDB not enabled, skipping farmer data ingestion
+[2025-09-10 04:41:28,224] 89 root - INFO - Saved train/test data: artifacts\09_10_2025_04_41_24\data_ingestion\ingested\crop_train.csv, artifacts\09_10_2025_04_41_24\data_ingestion\ingested\crop_test.csv
+[2025-09-10 04:41:28,243] 89 root - INFO - Saved train/test data: artifacts\09_10_2025_04_41_24\data_ingestion\ingested\fertilizer_train.csv, artifacts\09_10_2025_04_41_24\data_ingestion\ingested\fertilizer_test.csv
+[2025-09-10 04:41:28,243] 120 root - INFO - Data Ingestion completed successfully
+[2025-09-10 04:41:28,244] 34 root - INFO - Data Ingestion completed: DataIngestionArtifact(crop_train_file_path='artifacts\\09_10_2025_04_41_24\\data_ingestion\\ingested\\crop_train.csv', crop_test_file_path='artifacts\\09_10_2025_04_41_24\\data_ingestion\\ingested\\crop_test.csv', fertilizer_train_file_path='artifacts\\09_10_2025_04_41_24\\data_ingestion\\ingested\\fertilizer_train.csv', fertilizer_test_file_path='artifacts\\09_10_2025_04_41_24\\data_ingestion\\ingested\\fertilizer_test.csv', mongo_enabled=False, crop_collection_name='CropData', fertilizer_collection_name='FertilizerData', farmer_collection_name='FarmerInputs')
+[2025-09-10 04:41:28,244] 41 root - INFO - Starting Data Validation...
+[2025-09-10 04:41:28,287] 40 root - INFO - Expected columns: ['N', 'P', 'K', 'temperature', 'humidity', 'ph', 'rainfall', 'label']
+[2025-09-10 04:41:28,287] 41 root - INFO - DataFrame columns: ['N', 'P', 'K', 'temperature', 'humidity', 'ph', 'rainfall', 'label']
+[2025-09-10 04:41:28,287] 40 root - INFO - Expected columns: ['N', 'P', 'K', 'temperature', 'humidity', 'ph', 'rainfall', 'label']
+[2025-09-10 04:41:28,287] 41 root - INFO - DataFrame columns: ['N', 'P', 'K', 'temperature', 'humidity', 'ph', 'rainfall', 'label']
+[2025-09-10 04:41:28,334] 40 root - INFO - Expected columns: ['Temperature', 'Humidity', 'Moisture', 'Soil_Type', 'Crop_Type', 'Nitrogen', 'Potassium', 'Phosphorous', 'Fertilizer_name']
+[2025-09-10 04:41:28,334] 41 root - INFO - DataFrame columns: ['Temperature', 'Humidity', 'Moisture', 'Soil_Type', 'Crop_Type', 'Nitrogen', 'Potassium', 'Phosphorous', 'Fertilizer_name']
+[2025-09-10 04:41:28,334] 40 root - INFO - Expected columns: ['Temperature', 'Humidity', 'Moisture', 'Soil_Type', 'Crop_Type', 'Nitrogen', 'Potassium', 'Phosphorous', 'Fertilizer_name']
+[2025-09-10 04:41:28,334] 41 root - INFO - DataFrame columns: ['Temperature', 'Humidity', 'Moisture', 'Soil_Type', 'Crop_Type', 'Nitrogen', 'Potassium', 'Phosphorous', 'Fertilizer_name']
+[2025-09-10 04:41:28,382] 48 root - INFO - Data Validation completed: DataValidationArtifact(validation_status=True, crop_valid_train_file_path='artifacts\\09_10_2025_04_41_24\\data_validation\\crop_train.csv', crop_valid_test_file_path='artifacts\\09_10_2025_04_41_24\\data_validation\\crop_test.csv', crop_invalid_train_file_path=None, crop_invalid_test_file_path=None, fertilizer_valid_train_file_path='artifacts\\09_10_2025_04_41_24\\data_validation\\fertilizer_train.csv', fertilizer_valid_test_file_path='artifacts\\09_10_2025_04_41_24\\data_validation\\fertilizer_test.csv', fertilizer_invalid_train_file_path=None, fertilizer_invalid_test_file_path=None, drift_report_file_path='artifacts\\09_10_2025_04_41_24\\data_validation\\drift_report\\report.yml')
+[2025-09-10 04:41:28,382] 55 root - INFO - Starting Data Transformation...
+[2025-09-10 04:41:28,382] 74 root - INFO - Entered initiate_data_transformation method in DataTransformation class
+[2025-09-10 04:41:28,382] 76 root - INFO - Starting data transformation
+[2025-09-10 04:41:28,429] 42 root - INFO - Entered get_data_transformer_object method of Transformation class
+[2025-09-10 04:41:28,429] 49 root - INFO - Numeric features: ['N', 'P', 'K', 'temperature', 'humidity', 'ph', 'rainfall']
+[2025-09-10 04:41:28,429] 50 root - INFO - Categorical features: []
+[2025-09-10 04:41:28,460] 42 root - INFO - Entered get_data_transformer_object method of Transformation class
+[2025-09-10 04:41:28,462] 49 root - INFO - Numeric features: ['Temperature', 'Humidity', 'Moisture', 'Nitrogen', 'Potassium', 'Phosphorous']
+[2025-09-10 04:41:28,462] 50 root - INFO - Categorical features: ['Soil_Type', 'Crop_Type']
+[2025-09-10 04:41:28,489] 78 root - INFO - Saving object to artifacts\09_10_2025_04_41_24\data_transformation\crop_transformed_object\crop_preprocessor.pkl
+[2025-09-10 04:41:28,500] 84 root - INFO - Object saved successfully
+[2025-09-10 04:41:28,500] 78 root - INFO - Saving object to final_model/crop_label_encoder.pkl
+[2025-09-10 04:41:28,500] 84 root - INFO - Object saved successfully
+[2025-09-10 04:41:28,505] 78 root - INFO - Saving object to artifacts\09_10_2025_04_41_24\data_transformation\fertilizer_transformed_object\fertilizer_preprocessor.pkl
+[2025-09-10 04:41:28,505] 84 root - INFO - Object saved successfully
+[2025-09-10 04:41:28,505] 78 root - INFO - Saving object to final_model/fertilizer_label_encoder.pkl
+[2025-09-10 04:41:28,505] 84 root - INFO - Object saved successfully
+[2025-09-10 04:41:28,505] 62 root - INFO - Data Transformation completed: DataTransformationArtifact(crop_preprocessor_object_path='artifacts\\09_10_2025_04_41_24\\data_transformation\\crop_transformed_object\\crop_preprocessor.pkl', crop_transformed_train_file_path='artifacts\\09_10_2025_04_41_24\\data_transformation\\crop_transformed\\crop_train.npy', crop_transformed_test_file_path='artifacts\\09_10_2025_04_41_24\\data_transformation\\crop_transformed\\crop_test.npy', fertilizer_preprocessor_object_path='artifacts\\09_10_2025_04_41_24\\data_transformation\\fertilizer_transformed_object\\fertilizer_preprocessor.pkl', fertilizer_transformed_train_file_path='artifacts\\09_10_2025_04_41_24\\data_transformation\\fertilizer_transformed\\fertilizer_train.npy', fertilizer_transformed_test_file_path='artifacts\\09_10_2025_04_41_24\\data_transformation\\fertilizer_transformed\\fertilizer_test.npy')
+[2025-09-10 04:41:28,505] 69 root - INFO - Starting Model Training for Crop and Fertilizer...
+[2025-09-10 04:41:28,505] 71 root - INFO - ==== Training started for task: crop ====
+[2025-09-10 04:44:49,047] 122 root - INFO - Best model for crop: Random Forest with params {'criterion': 'entropy', 'max_depth': None, 'n_estimators': 200} (CV score = 0.9943)
+[2025-09-10 04:44:49,075] 78 root - INFO - Saving object to artifacts\09_10_2025_04_41_24\model_trainer\trained_model\crop_model.pkl
+[2025-09-10 04:44:49,104] 84 root - INFO - Object saved successfully
+[2025-09-10 04:44:49,104] 148 root - INFO - ==== Training completed for crop ====
+[2025-09-10 04:44:49,106] 79 root - INFO - Crop model training completed: ModelTrainerArtifact(trained_model_file_path='artifacts\\09_10_2025_04_41_24\\model_trainer\\trained_model\\crop_model.pkl', train_metric_artifact=ClassificationMetricArtifact(f1_score=1.0, precision_score=1.0, recall_score=1.0), test_metric_artifact=ClassificationMetricArtifact(f1_score=0.9931754816901672, precision_score=0.9937348484848485, recall_score=0.9931818181818182))
+[2025-09-10 04:44:49,106] 71 root - INFO - ==== Training started for task: fertilizer ====
+[2025-09-10 04:45:11,042] 122 root - INFO - Best model for fertilizer: Gradient Boosting with params {'learning_rate': 0.1, 'max_depth': 3, 'n_estimators': 100, 'subsample': 0.8} (CV score = 0.9650)
+[2025-09-10 04:45:11,067] 78 root - INFO - Saving object to artifacts\09_10_2025_04_41_24\model_trainer\trained_model\fertilizer_model.pkl
+[2025-09-10 04:45:11,125] 84 root - INFO - Object saved successfully
+[2025-09-10 04:45:11,127] 148 root - INFO - ==== Training completed for fertilizer ====
+[2025-09-10 04:45:11,127] 83 root - INFO - Fertilizer model training completed: ModelTrainerArtifact(trained_model_file_path='artifacts\\09_10_2025_04_41_24\\model_trainer\\trained_model\\fertilizer_model.pkl', train_metric_artifact=ClassificationMetricArtifact(f1_score=1.0, precision_score=1.0, recall_score=1.0), test_metric_artifact=ClassificationMetricArtifact(f1_score=1.0, precision_score=1.0, recall_score=1.0))
+[2025-09-10 04:45:11,130] 111 root - INFO - ====== Training Pipeline Finished Successfully ======
+[2025-09-10 04:45:11,130] 21 root - INFO - Training pipeline completed successfully.
+[2025-09-10 04:45:11,130] 22 root - INFO - Model Trainer Artifacts: {'crop': ModelTrainerArtifact(trained_model_file_path='artifacts\\09_10_2025_04_41_24\\model_trainer\\trained_model\\crop_model.pkl', train_metric_artifact=ClassificationMetricArtifact(f1_score=1.0, precision_score=1.0, recall_score=1.0), test_metric_artifact=ClassificationMetricArtifact(f1_score=0.9931754816901672, precision_score=0.9937348484848485, recall_score=0.9931818181818182)), 'fertilizer': ModelTrainerArtifact(trained_model_file_path='artifacts\\09_10_2025_04_41_24\\model_trainer\\trained_model\\fertilizer_model.pkl', train_metric_artifact=ClassificationMetricArtifact(f1_score=1.0, precision_score=1.0, recall_score=1.0), test_metric_artifact=ClassificationMetricArtifact(f1_score=1.0, precision_score=1.0, recall_score=1.0))}
